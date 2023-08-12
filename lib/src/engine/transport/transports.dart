@@ -95,7 +95,7 @@ abstract class Transport extends EventEmitter {
     if (messageHandler != null) {
       messageHandler!.handle(this, data);
     } else {
-      onPacket(PacketParser.decodePacket(data, utf8decode: true));
+      onPacket(PacketParser.decodePacket(data, 'utf8'));
     }
   }
 

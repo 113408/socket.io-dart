@@ -256,48 +256,46 @@ class Server {
 
       var completer = Completer();
       var connectPacket = {'type': CONNECT, 'nsp': '/'};
-      encoder.encode(connectPacket, (encodedPacket) {
-        // the CONNECT packet will be merged with Engine.IO handshake,
-        // to reduce the number of round trips
-        opts!['initialPacket'] = encodedPacket;
+      var encodedPacket = encoder.encode(connectPacket);
+      // the CONNECT packet will be merged with Engine.IO handshake,
+      // to reduce the number of round trips
+      opts['initialPacket'] = encodedPacket;
 
-        _logger.fine('creating engine.io instance with opts $opts');
-        // initialize engine
-        engine = Engine.attach(server, opts);
+      _logger.fine('creating engine.io instance with opts $opts');
+      // initialize engine
+      engine = Engine.attach(server, opts);
 
-        // attach static file serving
+      // attach static file serving
 //        if (self._serveClient) self.attachServe(srv);
 
-        // Export http server
-        httpServer = server;
+      // Export http server
+      httpServer = server;
 
-        // bind to engine events
-        bind(engine!);
+      // bind to engine events
+      bind(engine!);
 
-        completer.complete();
-      });
+      completer.complete();
       await completer.future;
 //      });
     } else {
       var connectPacket = {'type': CONNECT, 'nsp': '/'};
-      encoder.encode(connectPacket, (encodedPacket) {
-        // the CONNECT packet will be merged with Engine.IO handshake,
-        // to reduce the number of round trips
-        opts!['initialPacket'] = encodedPacket;
+      var encodedPacket = encoder.encode(connectPacket);
+      // the CONNECT packet will be merged with Engine.IO handshake,
+      // to reduce the number of round trips
+      opts['initialPacket'] = encodedPacket;
 
-        _logger.fine('creating engine.io instance with opts $opts');
-        // initialize engine
-        engine = Engine.attach(srv, opts);
+      _logger.fine('creating engine.io instance with opts $opts');
+      // initialize engine
+      engine = Engine.attach(srv, opts);
 
-        // attach static file serving
+      // attach static file serving
 //        if (self._serveClient) self.attachServe(srv);
 
-        // Export http server
-        httpServer = srv;
+      // Export http server
+      httpServer = srv;
 
-        // bind to engine events
-        bind(engine!);
-      });
+      // bind to engine events
+      bind(engine!);
     }
 
     return this;

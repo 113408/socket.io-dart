@@ -1,3 +1,5 @@
+:warning: **NOTE**: This fork is specifically for supporting some features of Socket.io v3. Please ensure you're in the right place before using this version.
+
 # socket.io-dart
 
 Port of awesome JavaScript Node.js library - [Socket.io v2.0.1](https://github.com/socketio/socket.io) - in Dart

@@ -2,7 +2,7 @@ name: socket_io
 description: >
   Port of JS/Node library Socket.io. It enables real-time, bidirectional and 
   event-based communication cross-platform.
-version: 1.0.1
+version: 2.0.1
 homepage: https://www.zkoss.org
 repository: https://github.com/rikulo/socket.io-dart
 issue_tracker: https://github.com/rikulo/socket.io-dart/issues
@@ -12,7 +12,7 @@ environment:
 
 dependencies:
   stream: ^3.0.0
-  socket_io_common: ^1.0.1
+  socket_io_common: ^2.0.1
   uuid: ^3.0.4
   logging: ^1.0.0
 dev_dependencies:
